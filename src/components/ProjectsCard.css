@@ -1,0 +1,4 @@
+.project_cards {
+    display: flex;
+    flex-direction: row;
+}

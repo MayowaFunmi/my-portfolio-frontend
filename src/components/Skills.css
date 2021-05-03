@@ -1,0 +1,4 @@
+.skill_card {
+    display: flex;
+    flex-direction: row;
+}
