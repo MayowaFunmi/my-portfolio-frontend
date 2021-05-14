@@ -16,6 +16,7 @@ class Contact extends React.Component {
     }
     this.inputChanged = this.inputChanged.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.fetchSubmit = this.fetchSubmit.bind(this)
   }
 
   componentWillMount() {
@@ -33,30 +34,27 @@ class Contact extends React.Component {
     .catch(function(error) {
         console.log('ERROR: ', error)
     })
-}
-
-  // optional
-  fetchSubmit(e) {
-    e.preventDefault();
-  
-    fetch('http://127.0.0.1:8000/portfolio/contact_me/', {
-        method: "POST",
-        body: JSON.stringify(this.state),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      }).then(
-      (response) => (response.json())
-        ).then((response)=> {
-      if (response.status === 'success') {
-        this.resetForm()
-      } else if(response.status === 'fail') {
-        alert("Message failed to send.")
-      }
-    })
   }
 
+  fetchSubmit(e) {
+    e.preventDefault()
+    fetch('http://127.0.0.1:8000/portfolio/contact_me/', {
+        method:'POST',
+        body: JSON.stringify(this.state),
+        headers: {
+            'Content-type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then((data) => 
+        this.setState({
+            contacts: data
+        })
+    );
+    this.resetForm()
+  }
+
+  // optional
   handleSubmit(e){
     e.preventDefault();
     axios({
@@ -91,7 +89,7 @@ class Contact extends React.Component {
         // display contact messages
         <div>
           <div>
-            {messages.map(function(message){
+            {messages.map(message => {
               return(
                 <div key={message.id}>
                   <Messages
@@ -109,7 +107,7 @@ class Contact extends React.Component {
           </div>
           
           
-          <form id="contact-form" onSubmit={this.handleSubmit} method="POST">
+          <form id="contact-form" onSubmit={this.fetchSubmit} method="POST">
             <div className="form-group">
               <label>Full Name:</label>
               <input type="text" 
