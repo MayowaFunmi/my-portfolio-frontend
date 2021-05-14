@@ -4,9 +4,9 @@ import './Skills.css'
 
 const Skills = () => {
 
-    const frontend = ['JavaScript','React/Redux','HTML','CSS','Bootstrap','SemanticUI']
-    const backend = ['Python', 'Django', 'AWS', 'PostgreSQL']
-    const gameDev = ['Unity','Phaser','PyGame']
+    const frontend = ['JavaScript', 'jQuery/Ajax', 'React/Redux','HTML','CSS','Bootstrap','MaterialUI']
+    const backend = ['Python', 'Django', 'RESTful API', 'PostgreSQL']
+    const gui = ['Python', 'tkinter']
 
     return (
         <div className='skill_card'>
@@ -34,10 +34,10 @@ const Skills = () => {
 
             <div className="card" style={{width:'18rem'}}>
                 <div className="card-body">
-                    <h5 className="card-title">Game Development Tech skills:</h5>
+                    <h5 className="card-title">GUI Skills:</h5>
                     <ul>
                         <li>
-                            <SkillsList skills = {gameDev} />
+                            <SkillsList skills = {gui} />
                         </li>
                     </ul>
                 </div>

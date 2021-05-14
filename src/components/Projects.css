@@ -1,4 +1,4 @@
 .projects {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    flex-flow: row wrap;
 }

@@ -1,4 +1,13 @@
 .project_cards {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+    height: auto;
+    align-items: baseline;
+}
+.project_cards .card {
+    width: auto;
+    padding: 15px;
+}
+.project_cards .card-link {
+    justify-content: center;
 }

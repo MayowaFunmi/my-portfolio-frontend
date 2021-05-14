@@ -1,4 +1,16 @@
 .skill_card {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+    margin: 10px auto;
+}
+.card {
+    border: 1px solid #ccc;
+    margin-right: 1%;
+    height: auto;
+    border-radius: 10px;
+    transform: 0.9;
+}
+
+.card:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
 }
