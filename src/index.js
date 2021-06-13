@@ -6,12 +6,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AddProject from './components/AddProject';
 import Contact from './components/Contact';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import Logout from './components/Logout';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route exact path="/" component={App}></Route>
+        <Route exact path="/signup" component={SignUp}></Route>
+        <Route exact path="/login" component={Login}></Route>
+        <Route exact path="/logout" component={Logout}></Route>
         <Route exact path="/add_project" component={AddProject}></Route>
         <Route exact path="/contact_me" component={Contact}></Route>
       </Switch>

@@ -17,7 +17,7 @@ class Projects extends Component {
     }
 
     fetchProjects() {
-        fetch('http://127.0.0.1:8000/portfolio/api/projects/')
+        fetch('http://127.0.0.1:8000/portfolio/list_projects/')
         .then(response => response.json())
         .then(data =>
             this.setState({

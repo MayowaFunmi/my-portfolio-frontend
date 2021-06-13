@@ -15,6 +15,7 @@ class Contact extends React.Component {
         message: '',
     }
     this.inputChanged = this.inputChanged.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.fetchSubmit = this.fetchSubmit.bind(this)
   }
 
@@ -23,7 +24,7 @@ class Contact extends React.Component {
   }
 
   fetchContacts() {
-    fetch('http://127.0.0.1:8000/portfolio/list_contacts')
+    fetch('http://127.0.0.1:8000/portfolio/contact_me')
     .then(response => response.json())
     .then(data =>
         this.setState({
@@ -37,7 +38,7 @@ class Contact extends React.Component {
 
   fetchSubmit(e) {
     e.preventDefault()
-    fetch('http://127.0.0.1:8000/portfolio/create_contact/', {
+    fetch('http://127.0.0.1:8000/portfolio/contact_me/', {
         method:'POST',
         body: JSON.stringify(this.state),
         headers: {
@@ -53,6 +54,23 @@ class Contact extends React.Component {
     this.resetForm()
   }
 
+  // optional
+  handleSubmit(e){
+    e.preventDefault();
+    axios({
+      method: "POST",
+      url:'http://127.0.0.1:8000/portfolio/contact_me/',
+      data:  this.state
+    }).then((response)=>{
+      if (response.data.status === 'success') {
+        alert("Message Sent.");
+        this.resetForm()
+      } else if (response.data.status === 'fail') {
+        alert("Message failed to send.")
+      }
+    })
+  }
+
   inputChanged = e => {
 	  this.setState({[e.target.name]: e.target.value})
   }
@@ -63,8 +81,32 @@ class Contact extends React.Component {
 
   render() {
     var messages = this.state.contacts;
-    return(
+
+    if (messages.length == 0){
+      return <h2>No Messages Yet</h2>
+    } else {
+      return(
+        // display contact messages
         <div>
+          <div>
+            {messages.map(message => {
+              return(
+                <div key={message.id}>
+                  <Messages
+                    full_name={message.full_name}
+                    email={message.email}
+                    phone_number={message.phone_number}
+                    address={message.address}
+                    message={message.message}
+                    sent={message.sent}
+                  />
+                  <br />
+                </div>
+              )
+            })}
+          </div>
+          
+          
           <form id="contact-form" onSubmit={this.fetchSubmit} method="POST">
             <div className="form-group">
               <label>Full Name:</label>
@@ -118,32 +160,22 @@ class Contact extends React.Component {
   
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
-
-          <div>
-            {/*
-              if user is admin, display contact messages
-            */}
-            <h2>My Contact Messages:</h2>
-            {messages.map(message => {
-              return(
-                <div key={message.id}>
-                  <Messages
-                    full_name={message.full_name}
-                    email={message.email}
-                    phone_number={message.phone_number}
-                    address={message.address}
-                    message={message.message}
-                    sent={message.sent}
-                  />
-                  <br />
-                </div>
-              )
-            })}
-          </div>
         </div>
       );
+    }
   }
 
+  // another option
+  handleChange(event) {
+    const field = event.target.id;
+    if (field === "name") {
+      this.setState({ name: event.target.value });
+    } else if (field === "email") {
+      this.setState({ email: event.target.value });
+    } else if (field === "message") {
+      this.setState({ message: event.target.value });
+    }
+  }
 }
 
 export default Contact;

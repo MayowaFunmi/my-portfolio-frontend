@@ -72,76 +72,83 @@ class AddProject extends Component {
         //const { id, name, description, github_link, demo_link, image, date_published } = this.state.projects
         // use value={name} etc
         return (
-            <div>
-                <h1>Add New Project</h1>
+            <div className='container'>
+                <div className='row justify-content-md-center'>
+                    <div className='col-md-auto'>
+                        <div>
+                            <h1>Add New Project</h1>
+                        </div>
 
-                <form onSubmit={this.handleSubmit} id='form' encType='"multipart/form-data'>
-                        <label>Name:</label>
-                        <input 
-                            type='text' 
-                            name='name' 
-                            placeholder='Add Project Name' 
-                            className='form-control'
-                            value={this.state.name}
-                            onChange={this.inputChanged}
-                        />
-                        <br />
+                        <form onSubmit={this.handleSubmit} id='form' encType='"multipart/form-data'>
+                            <label>Name:</label>
+                            <input 
+                                type='text' 
+                                name='name' 
+                                placeholder='Add Project Name' 
+                                className='form-control'
+                                value={this.state.name}
+                                onChange={this.inputChanged}
+                            />
+                            <br />
 
-                        <label>Description:</label>
-                        <textarea
-                            type='text' 
-                            name='description' 
-                            rows="5" 
-                            placeholder='Project Description' 
-                            className='form-control' 
-                            value={this.state.description}
-                            onChange={this.inputChanged}
-                        />
-                        <br />
+                            <label>Description:</label>
+                            <textarea
+                                type='text' 
+                                name='description' 
+                                rows="5" 
+                                placeholder='Project Description' 
+                                className='form-control' 
+                                value={this.state.description}
+                                onChange={this.inputChanged}
+                            />
+                            <br />
 
-                        <label>Github Link:</label>
-                        <input 
-                            type='url' 
-                            name='github_link' 
-                            placeholder='Add Github URL' 
-                            className='form-control'
-                            value={this.state.github_link}
-                            onChange={this.inputChanged}
-                        />
-                        <br />
+                            <label>Github Link:</label>
+                            <input 
+                                type='url' 
+                                name='github_link' 
+                                placeholder='Add Github URL' 
+                                className='form-control'
+                                value={this.state.github_link}
+                                onChange={this.inputChanged}
+                            />
+                            <br />
 
-                        <label>Demo Page Link:</label>
-                        <input 
-                            type='url' 
-                            name='demo_link' 
-                            placeholder='Add Project Demo Page Link' 
-                            className='form-control'
-                            value={this.state.demo_link}
-                            onChange={this.inputChanged}
-                        />
-                        <br />
+                            <label>Demo Page Link:</label>
+                            <input 
+                                type='url' 
+                                name='demo_link' 
+                                placeholder='Add Project Demo Page Link' 
+                                className='form-control'
+                                value={this.state.demo_link}
+                                onChange={this.inputChanged}
+                            />
+                            <br />
 
-                        <label>Add Project image:</label>
-                        <input 
-                            type='file' 
-                            name='image' 
-                            className='form-control' 
-                            onChange={this.imageChanged}
-                        />
-                        <br />
+                            <label>Add Project image:</label>
+                            <input 
+                                type='file' 
+                                name='image' 
+                                className='form-control' 
+                                onChange={this.imageChanged}
+                            />
+                            <br />
 
-                        <label>Date of Deployment:</label>
-                        <input 
-                            type='date' 
-                            name='date_published' 
-                            className='form-control'
-                            value={this.state.date_published}
-                            onChange={this.inputChanged}
-                        />
-                        <br />
+                            <label>Date of Deployment:</label>
+                            <input 
+                                type='date' 
+                                name='date_published' 
+                                className='form-control'
+                                value={this.state.date_published}
+                                onChange={this.inputChanged}
+                            />
+                            <br />
 
-                        <input type='submit' name='Add Project' className='btn btn-success' />
-                    </form>
+                            <input type='submit' name='Add Project' className='btn btn-success' />
+                        </form>
+            
+                    </div>
+                </div>
             </div>
         )
     }
