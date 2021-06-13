@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import MyCV from './Mayowa_cv.pdf'
 import './MyResume.css'
+import { Link } from 'react-router-dom'
+
 
 class MyResume extends Component {
 
@@ -12,9 +14,9 @@ class MyResume extends Component {
                     type="button" 
                     className="btn btn-outline-success"
                 >
-                    <a href={MyCV} download='Akinade_Mayowa_Resume' target='_blank'>
+                    <Link to={MyCV} download='Akinade_Mayowa_Resume' target='_blank'>
                         Download PDF
-                    </a>
+                    </Link>
                 </button>
             </div>
         )

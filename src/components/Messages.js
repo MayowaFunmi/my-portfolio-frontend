@@ -19,7 +19,7 @@ const Messages = (props) => {
                 <b>Message:</b>{props.message}
             </div>
             <div>
-                <b>Date sent:</b>{props.sent}
+                <b>Date sent:</b>{new Date(props.sent).toLocaleString()}
             </div>
             
         </div>
