@@ -7,7 +7,6 @@ class AuthHandler {
     axios
       .post(Config.loginUrl, { username: username, password: password })
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
           reactLocalStorage.set("token", response.data.access);
           reactLocalStorage.set("refresh", response.data.refresh);
@@ -16,7 +15,6 @@ class AuthHandler {
         }
       })
       .catch(function (error) {
-        console.log(error.response)
         callback({
           error: true,
           message: "Error During Login Invalid Login Details..",

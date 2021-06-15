@@ -13,12 +13,12 @@ const ProjectsCard = (props) => {
                 <b className='card-text'>Project Description: </b>{props.description}
                 <button>
                     <Link className='card-link' to={props.github_link} target='_blank'>
-                        <h6 class="card-subtitle mb-2 text-muted">GitHub Link</h6>
+                        <h6 className="card-subtitle mb-2 text-muted">GitHub Link</h6>
                     </Link>
                 </button>
                 <button>
                     <Link className='card-link' to={props.demo_link} target='_blank'>
-                        <h6 class="card-subtitle mb-2 text-muted">Demo Link</h6>
+                        <h6 className="card-subtitle mb-2 text-muted">Demo Link</h6>
                     </Link>
                 </button>
             </div>
