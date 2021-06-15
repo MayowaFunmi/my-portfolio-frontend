@@ -40,7 +40,7 @@ class ApiHandler {
     }
 
     async fetchAllUsers() {
-        await this.checkLogin();
+        //await this.checkLogin();
         var response = await Axios.get(Config.listAllUsersUrl, {
             headers: { Authorization: 'JWT ' + AuthHandler.getLoginToken()}
         })

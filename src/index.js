@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react'
+
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index.css';
@@ -9,10 +10,27 @@ import Contact from './components/Contact';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import NavBar from './components/NavBar'
+
+class Index extends Component {
+
+  
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}
+
+export default Index
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+    <NavBar />
       <Switch>
         <Route exact path="/" component={App}></Route>
         <Route exact path="/signup" component={SignUp}></Route>

@@ -15,6 +15,7 @@ class NavBar extends Component {
 
     componentDidMount() {
         this.loginCheck()
+        this.allUsers()
     }
 
     async allUsers() {
@@ -47,8 +48,10 @@ class NavBar extends Component {
     }
 
     render() {
+        
+
         var name = this.state.username;
-        if (this.state.login_status) {
+        if (this.state.login_status && this.state.staff_status) {
             return (
                 <div>
                     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -65,7 +68,37 @@ class NavBar extends Component {
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/contact_me">Add Project</Link>
+                                    </li>
                                     
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/logout">Logout</Link>
+                                    </li>                                
+                                </ul>
+                            </div>
+                            <h2>Welcome, {name}</h2>
+                        </div>
+                    </nav>
+                </div>
+            )
+        } else if (this.state.login_status && this.state.staff_status == false) {
+            return (
+                <div>
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                        <div className="container-fluid">
+                            <Link className="navbar-brand" to="/">My Portfolio App</Link>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarNav">
+                                <ul className="navbar-nav">
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/">Blog</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/contact_me">Contact Me</Link>
+                                    </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/logout">Logout</Link>
                                     </li>                                
@@ -102,7 +135,7 @@ class NavBar extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            <h2>Welcome, Guest!</h2>
+                            <h2>Hi, Guest!</h2>
                         </div>
                     </nav>
                 </div>

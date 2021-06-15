@@ -8,7 +8,6 @@ import Skills from './components/Skills'
 function App() {
   return (
     <div>
-      <NavBar />
       <Header />
       <MyResume />
       <Skills />
