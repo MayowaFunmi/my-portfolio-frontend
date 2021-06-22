@@ -11,11 +11,15 @@ class NavBar extends Component {
         staff_status: false,
         username: '',
         email:'',
+        width: window.screen.width,
+        buttonClass: ''
     }
 
     componentDidMount() {
         this.loginCheck()
         this.allUsers()
+        //window.addEventListener('resize', this.onscreensize);
+        this.onscreensize()
     }
 
     async allUsers() {
@@ -47,29 +51,49 @@ class NavBar extends Component {
         }
     }
 
+    onscreensize = () => {
+        this.setState({
+            width: window.screen.width
+        })
+        console.log(window.screen.width);
+    }
+
+    onButtonClick = () => {
+
+    }
+
     render() {
-        
+        var navClass = 'navbar navbar-expand-lg navbar-light bg-light fixed-top';
+        var className1 = 'navbar-toggler';
+        var className2 = 'collapse navbar-collapse'
+        if (className1 == 'navbar-toggler collapsed') {
+            className2 = 'navbar-collapse collapse';
+            console.log('first phase')
+        } else if (className1 == 'navbar-toggler' && className2 == 'navbar-collapse collapse show') {
+            navClass = 'navbar navbar-expand-lg navbar-light bg-light fixed-top' + ' setMargin';
+            console.log('second phase')
+        }
 
         var name = this.state.username;
         if (this.state.login_status && this.state.staff_status) {
             return (
                 <div>
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                    <nav className={navClass}>
                         <div className="container-fluid">
                             <Link className="navbar-brand" to="/">My Portfolio App</Link>
-                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <button className={className1} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
-                            <div className="collapse navbar-collapse" id="navbarNav">
+                            <div className={className2} id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/">Blog</Link>
+                                        <Link className="nav-link" to="/create_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/contact_me">Add Project</Link>
+                                        <Link className="nav-link" to="/add_project">Add Project</Link>
                                     </li>
                                     
                                     <li className="nav-item">
@@ -94,7 +118,7 @@ class NavBar extends Component {
                             <div className="collapse navbar-collapse" id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/">Blog</Link>
+                                        <Link className="nav-link" to="/create_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
@@ -121,7 +145,7 @@ class NavBar extends Component {
                             <div className="collapse navbar-collapse" id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/">Blog</Link>
+                                        <Link className="nav-link" to="/create_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
