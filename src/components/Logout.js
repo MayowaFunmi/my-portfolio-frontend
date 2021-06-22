@@ -5,7 +5,7 @@ import AuthHandler from "../utils/AuthHandler";
 
 class Logout extends React.Component {
 
-  async logoutUser() {
+  async logoutUsers() {
 
     var api_handler = new ApiHandler();
     var response = await api_handler.logout(
@@ -20,7 +20,7 @@ class Logout extends React.Component {
   render() {
     //AuthHandler.logoutUser();
     //return <Redirect to="/login" />;
-    return this.logoutUser();
+    return this.logoutUsers();
   }
 }
 export default Logout;

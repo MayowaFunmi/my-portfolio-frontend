@@ -48,20 +48,39 @@ class ApiHandler {
     }
 
     async logout() {
-        if (AuthHandler.loggedIn()) {
+        await this.checkLogin();
             var response = await Axios.post(
-                Config.logoutUrl, {
-                    refresh: AuthHandler.getRefreshToken()
-                },
-                {headers: { Authorization: 'JWT ' + AuthHandler.getLoginToken()}}
-            );
-            //console.log(response)
-            return response;
-        } else {
-            //console.log('not logged out')
-            return ('')
-        }
-        
+            Config.logoutUrl, {
+                refresh: AuthHandler.getRefreshToken()
+            },
+            {headers: { Authorization: 'JWT ' + AuthHandler.getLoginToken()}}
+        );
+        //console.log(response)
+        return response;
+    }
+
+    async createPost (user, category, title, body) {
+        await this.checkLogin()
+        console.log('login confirmed')
+        var response = await Axios.post(
+            Config.blogPostUrl, {
+                user: AuthHandler.getUsername(),
+                category: category,
+                title: title,
+                body: body,
+            },
+            { headers: { Authorization: "JWT " + AuthHandler.getLoginToken()}}
+        );
+        console.log(response)
+        return response
+    }
+
+    async fetchCategories() {
+        await this.checkLogin();
+        var response = await Axios.get(Config.blogCategoryUrl, {
+            headers: { Authorization: 'JWT ' + AuthHandler.getLoginToken()}
+        })
+        return response;
     }
 }
 

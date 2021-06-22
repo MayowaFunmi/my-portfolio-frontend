@@ -31,7 +31,6 @@ class SignUp extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavBar />
                 <div className='container'>
                 <div className='row justify-content-md-center'>
                     

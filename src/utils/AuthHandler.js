@@ -65,6 +65,30 @@ class AuthHandler {
 
     return Date.now() > expire;
   }
+
+  static getPayload(jwt) {
+    if (this.loggedIn()) {
+      console.log('user already logged in')
+      return atob(jwt.split(".")[1])
+    } else {
+      console.log('user not available')
+      return window.location = '/'
+    }
+  }
+
+  static TokenExpiry() {
+    var payload = this.getPayload(this.getLoginToken());
+    var expiration = new Date(payload.exp);
+    var now = new Date();
+    var fiveMinutes = 1000 * 60 * 5;
+    if (expiration.getTime() - now.getTime() <= fiveMinutes) {
+      //console.log('token has expired or will soon expire')
+      return false
+    } else {
+      //console.log('token is valid for more than five mins', payload)
+      return true
+    }
+  }
 }
 
 export default AuthHandler;
