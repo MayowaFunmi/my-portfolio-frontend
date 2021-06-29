@@ -1,0 +1,10 @@
+.post_cards {
+    display: flex;
+    flex-flow: row wrap;
+    height: auto;
+    align-items: baseline;
+}
+.post_cards .card {
+    width: auto;
+    padding: 15px;
+}

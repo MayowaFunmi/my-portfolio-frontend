@@ -7,7 +7,7 @@ import { Event } from '@material-ui/icons';
 class BlogPost extends Component {
 
     constructor() {
-        super()
+        super();
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     
@@ -27,6 +27,7 @@ class BlogPost extends Component {
     }
 
     async handleSubmit(event) {
+        console.log('working')
         event.preventDefault()
 
         var api_handler = new ApiHandler();

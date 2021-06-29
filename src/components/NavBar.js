@@ -87,7 +87,7 @@ class NavBar extends Component {
                             <div className={className2} id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/create_blog_post">Blog</Link>
+                                        <Link className="nav-link" to="/list_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
@@ -118,7 +118,7 @@ class NavBar extends Component {
                             <div className="collapse navbar-collapse" id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/create_blog_post">Blog</Link>
+                                        <Link className="nav-link" to="/list_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
@@ -145,7 +145,7 @@ class NavBar extends Component {
                             <div className="collapse navbar-collapse" id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/create_blog_post">Blog</Link>
+                                        <Link className="nav-link" to="/list_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
