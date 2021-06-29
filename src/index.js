@@ -12,7 +12,9 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import NavBar from './components/NavBar'
 import BlogPost from './blog/BlogPost';
-import Particles from 'react-particles-js';
+import PostList from './blog/PostList';
+import ReactParticles from './components/ReactParticles';
+import PostDetails from './blog/PostDetails';
 
 class Index extends Component {
 
@@ -36,27 +38,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <NavBar />
-    <Particles
-        params={{
-          className: 'particles-canvas',
-          particles: {
-            number: {
-              value: 30,
-              density: {
-                enable: true,
-                value_area: 500
-              }
-            },
-            shape: {
-              type: 'circle',
-              stroke: {
-                width: 6,
-                color: "#f9ab0a"
-              }
-            } 
-          }
-        }}
-      />
+    <ReactParticles />
       <Switch>
         <Route exact path="/" component={App}></Route>
         <Route exact path="/signup" component={SignUp}></Route>
@@ -65,6 +47,8 @@ ReactDOM.render(
         <Route exact path="/add_project" component={AddProject}></Route>
         <Route exact path="/contact_me" component={Contact}></Route>
         <Route exact path="/create_blog_post" component={BlogPost}></Route>
+        <Route exact path="/list_blog_post" component={PostList}></Route>
+        <Route exact path="/blog_post_details/:id" component={PostDetails}></Route>
       </Switch>
     </Router>
   </React.StrictMode>,

@@ -75,6 +75,23 @@ class ApiHandler {
         return response
     }
 
+    async fetchPosts() {
+        //await this.checkLogin();
+        var response = await Axios.get(Config.blogPostUrl, {
+            headers: { 'Content-Type': 'application/json'}
+        })
+        //console.log(response)
+        return response;
+    }
+
+    async fetchPostDetails(id) {
+        var response = await Axios.get(Config.blogPostUrl + "" + id + "/", {
+            headers: { Authorization: "JWT " + AuthHandler.getLoginToken() },
+        })
+        //console.log(response)
+        return response
+    }
+
     async fetchCategories() {
         await this.checkLogin();
         var response = await Axios.get(Config.blogCategoryUrl, {

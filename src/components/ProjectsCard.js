@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const ProjectsCard = (props) => {
     return (
         <div className='project_cards'>
-            <div className="card" style={{width:'18rem'}}>
+            <div className="card" style={{width:'20rem'}}>
                 <h5 className='card-title'>
                     <b>Name of project: </b>{props.name}
                 </h5>
