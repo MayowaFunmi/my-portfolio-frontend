@@ -38,7 +38,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <NavBar />
-    <ReactParticles />
+    {/**/}
+    <ReactParticles /> 
       <Switch>
         <Route exact path="/" component={App}></Route>
         <Route exact path="/signup" component={SignUp}></Route>

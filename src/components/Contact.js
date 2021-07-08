@@ -5,6 +5,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import PhoneEnabledRoundedIcon from '@material-ui/icons/PhoneEnabledRounded';
 import HomeIcon from '@material-ui/icons/Home';
 import MessageIcon from '@material-ui/icons/Message';
+import BlockIcon from '@material-ui/icons/Block';
 
 class Contact extends React.Component {
 

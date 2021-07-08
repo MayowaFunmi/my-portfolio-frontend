@@ -49,21 +49,27 @@ class AuthHandler {
   }
 
   static checkTokenExpiry() {
-    var expire = false;
-    var token = this.getLoginToken();
-    var tokenArray = token.split(".");
-    var jwt = JSON.parse(atob(tokenArray[1]));
-    if (jwt && jwt.exp && Number.isFinite(jwt.exp)) {
-      expire = jwt.exp * 1000;
-    } else {
-      expire = false;
-    }
+    if (this.loggedIn()) {
+      var expire = false;
+      var token = this.getLoginToken();
+      var tokenArray = token.split(".");
+      var jwt = JSON.parse(atob(tokenArray[1]));
+      if (jwt && jwt.exp && Number.isFinite(jwt.exp)) {
+        expire = jwt.exp * 1000;
+      } else {
+        expire = false;
+      }
 
-    if (!expire) {
+      if (!expire) {
+        return false;
+      }
+      //console.log('check login expiry done')
+      return Date.now() > expire;
+    } else {
+      //console.log('check login expiry failed')
       return false;
     }
-
-    return Date.now() > expire;
+    
   }
 
   static getPayload(jwt) {

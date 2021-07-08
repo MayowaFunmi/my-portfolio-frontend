@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ApiHandler from '../utils/ApiHandler'
 import AuthHandler from '../utils/AuthHandler'
+//import './NavBar.css'
 
 class NavBar extends Component {
 
@@ -12,7 +13,8 @@ class NavBar extends Component {
         username: '',
         email:'',
         width: window.screen.width,
-        buttonClass: ''
+        buttonClass: '',
+        clock: '',
     }
 
     componentDidMount() {
@@ -20,6 +22,7 @@ class NavBar extends Component {
         this.allUsers()
         //window.addEventListener('resize', this.onscreensize);
         this.onscreensize()
+        this.showTime()
     }
 
     async allUsers() {
@@ -55,11 +58,33 @@ class NavBar extends Component {
         this.setState({
             width: window.screen.width
         })
-        console.log(window.screen.width);
+        //console.log(window.screen.width);
     }
 
-    onButtonClick = () => {
+    showTime = () => {
+        var meridian = 'AM'
+        var myDate = new Date();
+        var hour = myDate.getHours()
+        var minute = myDate.getMinutes()
+        var second = myDate.getSeconds()
 
+        if (hour > 11) {
+            meridian = "PM"
+        }
+        if (hour > 12) {
+            hour = hour - 12
+        }
+        if (minute < 10) {
+            minute = '0' + minute
+        }
+        if (second < 10) {
+            second = '0' + second
+        }
+
+        var currentTime = hour + ":" + minute + ":" + second + meridian;
+        console.log(currentTime)
+        this.setState({ clock: currentTime })
+        //setInterval(this.showTime(), 1000);
     }
 
     render() {
@@ -78,13 +103,13 @@ class NavBar extends Component {
         if (this.state.login_status && this.state.staff_status) {
             return (
                 <div>
-                    <nav className={navClass}>
+                    <nav className='navbar navbar-expand-lg navbar-light bg-light fixed-top'>
                         <div className="container-fluid">
                             <Link className="navbar-brand" to="/">My Portfolio App</Link>
-                            <button className={className1} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <button className='navbar-toggler' type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
-                            <div className={className2} id="navbarNav">
+                            <div className='navbar-collapse collapse' id="navbarNav">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/list_blog_post">Blog</Link>
@@ -102,6 +127,7 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2>Welcome, {name}</h2>
+                            <h2>{this.state.clock}</h2>
                         </div>
                     </nav>
                 </div>
@@ -129,6 +155,7 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2>Welcome, {name}</h2>
+                            <h2>{this.state.clock}</h2>
                         </div>
                     </nav>
                 </div>
@@ -160,6 +187,7 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2>Hi, Guest!</h2>
+                            <h2>{this.state.clock}</h2>
                         </div>
                     </nav>
                 </div>

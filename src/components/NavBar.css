@@ -1,7 +1,3 @@
 .navbar {
-    display: flex;
-    flex-direction: row;
-}
-.navbar .navbar-nav {
-    align-items: center;
+    margin-bottom: 50px
 }

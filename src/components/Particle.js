@@ -1,9 +1,10 @@
 import React from 'react';
 import Typed from 'react-typed';
+import './Particle.css'
 
 const Particle = () => {
     return (
-        <div className='container-fluid header-wrapper'>
+        <div className='container-fluid header-wrapper particle'>
             <div className='main-info'>
                 <h1>Web Development and Websites Promotions</h1>
                 <Typed 

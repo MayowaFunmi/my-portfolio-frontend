@@ -23,7 +23,7 @@ class PostList extends Component {
         var posts = new ApiHandler();
         var response = await posts.fetchPosts();
         this.setState({ all_posts: response.data })
-        //console.log(this.state.all_posts)
+        console.log(this.state.all_posts)
     }
 
     async PostDetails(post_id) {
@@ -41,7 +41,8 @@ class PostList extends Component {
     render() {
         
         return (
-            <div>
+            <div className='post_lists'>
+                <h2>Welcome to the blog /forum section of my portfolio site.</h2>
                 {this.state.login_status == true ? (
                     <Link to='/create_blog_post'>Create Post</Link>
                 ) : (
@@ -57,6 +58,7 @@ class PostList extends Component {
                                 <h6 className='card-subtitle mb-2 text-muted'>by {post.user}</h6>
                                 <h6 className='card-subtitle mb-2 text-muted'>{new Date(post.created).toLocaleString()}</h6>
                                 <p className='card-text'>{post.body.substr(0, 40)}...</p>
+                                <p className='card-subtitle mb-2 text-muted'>This post has {post.comments.length} comments.</p>
                                 <button 
                                     className="btn btn-primary"
                                     onClick={() =>
