@@ -53,6 +53,7 @@ class ApiHandler {
             Config.logoutUrl, {
                 refresh: AuthHandler.getRefreshToken()
             },
+            //{headers: { 'Content-Type': 'application/json'}}
             {headers: { Authorization: 'JWT ' + AuthHandler.getLoginToken()}}
         );
         //console.log(response)
@@ -86,9 +87,17 @@ class ApiHandler {
 
     async fetchPostDetails(id) {
         var response = await Axios.get(Config.blogPostUrl + "" + id + "/", {
-            headers: { Authorization: "JWT " + AuthHandler.getLoginToken() },
+            headers: { 'Content-Type': 'application/json'}
+            //headers: { Authorization: "JWT " + AuthHandler.getLoginToken() },
         })
         //console.log(response)
+        return response
+    }
+
+    async fetchPostComments(id) {
+        var response = await Axios.get(Config.commentUrl + "" + id + "/", {
+            headers: { 'Content-Type': 'application/json'}
+        })
         return response
     }
 
