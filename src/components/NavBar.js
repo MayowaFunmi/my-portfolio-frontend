@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Digital from '../clock/Digital'
 import ApiHandler from '../utils/ApiHandler'
 import AuthHandler from '../utils/AuthHandler'
 //import './NavBar.css'
@@ -14,7 +15,6 @@ class NavBar extends Component {
         email:'',
         width: window.screen.width,
         buttonClass: '',
-        clock: '',
     }
 
     componentDidMount() {
@@ -22,7 +22,6 @@ class NavBar extends Component {
         this.allUsers()
         //window.addEventListener('resize', this.onscreensize);
         this.onscreensize()
-        this.showTime()
     }
 
     async allUsers() {
@@ -61,32 +60,6 @@ class NavBar extends Component {
         //console.log(window.screen.width);
     }
 
-    showTime = () => {
-        var meridian = 'AM'
-        var myDate = new Date();
-        var hour = myDate.getHours()
-        var minute = myDate.getMinutes()
-        var second = myDate.getSeconds()
-
-        if (hour > 11) {
-            meridian = "PM"
-        }
-        if (hour > 12) {
-            hour = hour - 12
-        }
-        if (minute < 10) {
-            minute = '0' + minute
-        }
-        if (second < 10) {
-            second = '0' + second
-        }
-
-        var currentTime = hour + ":" + minute + ":" + second + meridian;
-        console.log(currentTime)
-        this.setState({ clock: currentTime })
-        //setInterval(this.showTime(), 1000);
-    }
-
     render() {
         var navClass = 'navbar navbar-expand-lg navbar-light bg-light fixed-top';
         var className1 = 'navbar-toggler';
@@ -115,7 +88,13 @@ class NavBar extends Component {
                                         <Link className="nav-link" to="/list_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
+                                        <Link className="nav-link" to="/create_blog_post">Add New Post</Link>
+                                    </li>
+                                    <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/my_inbox">Inbox</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/add_project">Add Project</Link>
@@ -127,7 +106,7 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2>Welcome, {name}</h2>
-                            <h2>{this.state.clock}</h2>
+                            <Digital />
                         </div>
                     </nav>
                 </div>
@@ -147,6 +126,9 @@ class NavBar extends Component {
                                         <Link className="nav-link" to="/list_blog_post">Blog</Link>
                                     </li>
                                     <li className="nav-item">
+                                        <Link className="nav-link" to="/create_blog_post">Add New Post</Link>
+                                    </li>
+                                    <li className="nav-item">
                                         <Link className="nav-link" to="/contact_me">Contact Me</Link>
                                     </li>
                                     <li className="nav-item">
@@ -155,7 +137,7 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2>Welcome, {name}</h2>
-                            <h2>{this.state.clock}</h2>
+                            <Digital />
                         </div>
                     </nav>
                 </div>
@@ -187,7 +169,7 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2>Hi, Guest!</h2>
-                            <h2>{this.state.clock}</h2>
+                            <Digital />
                         </div>
                     </nav>
                 </div>

@@ -15,20 +15,21 @@ class PostList extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.showPosts()
     }
 
     async showPosts() {
         var posts = new ApiHandler();
         var response = await posts.fetchPosts();
+        console.log(response)
         this.setState({ all_posts: response.data })
         console.log(this.state.all_posts)
     }
 
     async PostDetails(post_id) {
-        var post_detail = await new ApiHandler()
-        var details = post_detail.fetchPostDetails(post_id)
+        var post_detail = new ApiHandler()
+        var details = await post_detail.fetchPostDetails(post_id)
         console.log(details)
 
         //window.location = '/blog_post_details/'+post_id;
@@ -42,18 +43,19 @@ class PostList extends Component {
         
         return (
             <div className='post_lists'>
+                {/*
                 <h2>Welcome to the blog /forum section of my portfolio site.</h2>
                 {this.state.login_status == true ? (
                     <Link to='/create_blog_post'>Create Post</Link>
                 ) : (
                     ""
                 )}
+                */}
                 <div className='post_cards'>
                 {this.state.all_posts.map(post => {
                     return (
                         <div key={post.id} className='card' style={{width:'20rem'}}>
                             <div className='card-body'>
-                                <h6 className='card-subtitle mb-2 text-muted'>Category: {post.category}</h6>
                                 <h5 className='card-title'>{post.title}</h5>
                                 <h6 className='card-subtitle mb-2 text-muted'>by {post.user}</h6>
                                 <h6 className='card-subtitle mb-2 text-muted'>{new Date(post.created).toLocaleString()}</h6>

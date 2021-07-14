@@ -47,6 +47,14 @@ class ApiHandler {
         return response;
     }
 
+    async fetchContacts() {
+        await this.checkLogin();
+        var response = await Axios.get(Config.ContactsUrl, {
+            headers: { Authorization: 'JWT ' + AuthHandler.getLoginToken()}
+        })
+        return response;
+    }
+
     async logout() {
         await this.checkLogin();
             var response = await Axios.post(
@@ -60,13 +68,11 @@ class ApiHandler {
         return response;
     }
 
-    async createPost (user, category, title, body) {
+    async createPost (user, title, body) {
         await this.checkLogin()
-        console.log('login confirmed')
         var response = await Axios.post(
             Config.blogPostUrl, {
                 user: AuthHandler.getUsername(),
-                category: category,
                 title: title,
                 body: body,
             },

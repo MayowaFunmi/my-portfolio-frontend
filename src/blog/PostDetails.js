@@ -122,7 +122,6 @@ class PostDetails extends Component {
                         <div className='col-md-auto'>
                             <div className='card' style={{width:'30rem'}}>
                                 <div className='card-body'>
-                                    <h6 className='card-subtitle mb-2 text-muted'>Category: {this.state.posts.category}</h6>
                                     <h5 className='card-title'>{this.state.posts.title}</h5>
                                     <h6 className='card-subtitle mb-2 text-muted'>by {this.state.posts.user}</h6>
                                     <h6 className='card-subtitle mb-2 text-muted'>{new Date(this.state.posts.created).toLocaleString()}</h6>
@@ -197,7 +196,6 @@ class PostDetails extends Component {
                         <div className='col-md-auto'>
                             <div className='card' style={{width:'30rem'}}>
                                 <div className='card-body'>
-                                    <h6 className='card-subtitle mb-2 text-muted'>Category: {this.state.posts.category}</h6>
                                     <h5 className='card-title'>{this.state.posts.title}</h5>
                                     <h6 className='card-subtitle mb-2 text-muted'>by {this.state.posts.user}</h6>
                                     <h6 className='card-subtitle mb-2 text-muted'>{new Date(this.state.posts.created).toLocaleString()}</h6>

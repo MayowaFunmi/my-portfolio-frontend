@@ -15,6 +15,9 @@ import BlogPost from './blog/BlogPost';
 import PostList from './blog/PostList';
 import ReactParticles from './components/ReactParticles';
 import PostDetails from './blog/PostDetails';
+import Inbox from './components/Inbox';
+import Analog from './clock/Analog';
+import Digital from './clock/Digital';
 
 class Index extends Component {
 
@@ -47,6 +50,7 @@ ReactDOM.render(
         <Route exact path="/logout" component={Logout}></Route>
         <Route exact path="/add_project" component={AddProject}></Route>
         <Route exact path="/contact_me" component={Contact}></Route>
+        <Route exact path="/my_inbox" component={Inbox}></Route>
         <Route exact path="/create_blog_post" component={BlogPost}></Route>
         <Route exact path="/list_blog_post" component={PostList}></Route>
         <Route exact path="/blog_post_details/:id" component={PostDetails}></Route>
