@@ -27,19 +27,15 @@ class BlogPost extends Component {
     }
 
     async handleSubmit(event) {
-        console.log('working')
         event.preventDefault()
 
         var api_handler = new ApiHandler();
         var response = await api_handler.createPost(
             event.target.user.value,
-            event.target.category.value,
             event.target.title.value,
             event.target.body.value,
         );
-        //window.location = "/blog_post_list"
-        console.log(response)
-        window.location = '/'
+        window.location = "/blog_post_list"
     }
     
     render() {
@@ -51,7 +47,7 @@ class BlogPost extends Component {
                 <div className='row justify-content-md-center'>
                     <div className='col-md-auto'>
                         <div>
-                            <h2>Welcome To My Portfolio Mini Blog Site</h2>
+                            <h2>Welcome To My Portfolio Mini Blog Page</h2>
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="input-group flex-nowrap">
@@ -65,26 +61,6 @@ class BlogPost extends Component {
                                     value={username}
                                     readOnly={true}
                                 />
-                            </div>
-
-                            <div className='input-group flex-nowrap'>
-                                <span className="input-group-text" id="addon-wrapping">
-                                    Choose Category:
-                                </span>
-                                {this.state.all_categories.map((category) => {
-                                    return(
-                                        <div className="form-check" key={category.id}><br />
-                                            <input 
-                                                name='category'
-                                                className="form-check-input"
-                                                type='checkbox' 
-                                                value={category.name}
-                                                id="flexCheckDefault"
-                                            />
-                                            {category.name};<br />
-                                        </div>
-                                    )
-                                })}
                             </div>
 
                             <div className="input-group flex-nowrap">
@@ -113,7 +89,7 @@ class BlogPost extends Component {
                             </div>
 
                             <div className="d-grid gap-2">
-                                <button className="btn btn-primary" type="button">Add Post</button>
+                                <button className="btn btn-primary" type="submit">Add Post</button>
                             </div>
                         </form>
 
@@ -123,5 +99,27 @@ class BlogPost extends Component {
         )
     }
 }
+
+{/*
+<div className='input-group flex-nowrap'>
+                                <span className="input-group-text" id="addon-wrapping">
+                                    Choose Category:
+                                </span>
+                                {this.state.all_categories.map((category) => {
+                                    return(
+                                        <div className="form-check" key={category.id}><br />
+                                            <input 
+                                                name='category'
+                                                className="form-check-input"
+                                                type='checkbox' 
+                                                value={category.name}
+                                                id="flexCheckDefault"
+                                            />
+                                            {category.name};<br />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+*/}
 
 export default BlogPost

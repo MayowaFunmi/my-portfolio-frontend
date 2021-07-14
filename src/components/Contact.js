@@ -25,8 +25,9 @@ class Contact extends React.Component {
     this.fetchSubmit = this.fetchSubmit.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchContacts()
+    console.log(this.state.contacts)
   }
 
   fetchContacts() {
@@ -99,6 +100,7 @@ class Contact extends React.Component {
 
   render() {
     var messages = this.state.contacts;
+    console.log(messages)
     return(
         <div className='container'>
           <div className='row justify-content-md-center'>
@@ -189,28 +191,6 @@ class Contact extends React.Component {
               </form>
 
             </div>
-          </div>
-
-          <div>
-            {/*
-              if user is admin, display contact messages
-            */}
-            <h2>My Contact Messages:</h2>
-            {messages.map(message => {
-              return(
-                <div key={message.id}>
-                  <Messages
-                    full_name={message.full_name}
-                    email={message.email}
-                    phone_number={message.phone_number}
-                    address={message.address}
-                    message={message.message}
-                    sent={message.sent}
-                  />
-                  <br />
-                </div>
-              )
-            })}
           </div>
         </div>
       );
