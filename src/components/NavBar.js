@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Digital from '../clock/Digital'
 import ApiHandler from '../utils/ApiHandler'
 import AuthHandler from '../utils/AuthHandler'
-//import './NavBar.css'
+import logo from '../components/ads_logo.jpg'
+import './NavBar.css'
 
 class NavBar extends Component {
 
@@ -78,7 +78,9 @@ class NavBar extends Component {
                 <div>
                     <nav className='navbar navbar-expand-lg navbar-light bg-light fixed-top'>
                         <div className="container-fluid">
-                            <Link className="navbar-brand" to="/">My Portfolio App</Link>
+                            <Link className="navbar-brand" to="/">
+                                <img src={logo} width='200px' height='50px'/>
+                            </Link>
                             <button className='navbar-toggler' type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
@@ -99,14 +101,16 @@ class NavBar extends Component {
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/add_project">Add Project</Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/my_resume">Upload</Link>
+                                    </li>
                                     
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/logout">Logout</Link>
                                     </li>                                
                                 </ul>
                             </div>
-                            <h2>Welcome, {name}</h2>
-                            <Digital />
+                            <h2 style={{ color: 'black' }}>Welcome, {name}</h2>
                         </div>
                     </nav>
                 </div>
@@ -116,7 +120,9 @@ class NavBar extends Component {
                 <div>
                     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                         <div className="container-fluid">
-                            <Link className="navbar-brand" to="/">My Portfolio App</Link>
+                            <Link className="navbar-brand" to="/">
+                                <img src={logo} width='200px' height='50px'/>
+                            </Link>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
@@ -136,8 +142,7 @@ class NavBar extends Component {
                                     </li>                                
                                 </ul>
                             </div>
-                            <h2>Welcome, {name}</h2>
-                            <Digital />
+                            <h2 style={{ color: 'black' }}>Welcome, {name}</h2>
                         </div>
                     </nav>
                 </div>
@@ -147,7 +152,9 @@ class NavBar extends Component {
                 <div>
                     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                         <div className="container-fluid">
-                            <Link className="navbar-brand" to="/">My Portfolio App</Link>
+                            <Link className="navbar-brand" to="/">
+                                <img src={logo} width='200px' height='50px'/>
+                            </Link>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
@@ -168,8 +175,7 @@ class NavBar extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            <h2>Hi, Guest!</h2>
-                            <Digital />
+                            <h2 style={{ color: 'black' }}>Hi, Guest!</h2>
                         </div>
                     </nav>
                 </div>
