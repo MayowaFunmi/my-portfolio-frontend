@@ -34,7 +34,9 @@ function Header() {
       <div className='header-right'>
         <h1>What I Do:</h1>
         <p>
-          I am a fullstack web developer, i take pleasure in developing web apps. I build new projects to engage my brain, explore and update myself on latest technologies and i love teaching others too. Kindly download my resume for more details.
+          I am a fullstack web developer, i take pleasure in developing web apps. 
+          I build new projects to engage my brain, explore and update myself on latest technologies and i love teaching others too. 
+          Kindly download my resume for more details.
         </p>
       </div>
 

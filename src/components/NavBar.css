@@ -1,3 +1,9 @@
 .navbar {
     margin-bottom: 50px
 }
+.nav-item > .nav-link:hover {
+    font-weight: bolder;
+}
+.navbar-brand > img {
+    font-weight: bolder;
+}

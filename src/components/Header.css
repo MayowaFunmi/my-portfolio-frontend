@@ -14,7 +14,7 @@
 .header-right {
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: auto;
     width: 200px;
     color: white;
     border: 1px solid green;

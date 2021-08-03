@@ -18,6 +18,7 @@ import PostDetails from './blog/PostDetails';
 import Inbox from './components/Inbox';
 import Analog from './clock/Analog';
 import Digital from './clock/Digital';
+import Resume from './components/Resume';
 
 class Index extends Component {
 
@@ -49,6 +50,7 @@ ReactDOM.render(
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/logout" component={Logout}></Route>
         <Route exact path="/add_project" component={AddProject}></Route>
+        <Route exact path="/my_resume" component={Resume}></Route>
         <Route exact path="/contact_me" component={Contact}></Route>
         <Route exact path="/my_inbox" component={Inbox}></Route>
         <Route exact path="/create_blog_post" component={BlogPost}></Route>
