@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Digital from '../clock/Digital'
 import ApiHandler from '../utils/ApiHandler'
 import AuthHandler from '../utils/AuthHandler'
 import logo from '../components/ads_logo.jpg'
@@ -112,7 +111,6 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2 style={{ color: 'black' }}>Welcome, {name}</h2>
-                            <Digital />
                         </div>
                     </nav>
                 </div>
@@ -145,7 +143,6 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2 style={{ color: 'black' }}>Welcome, {name}</h2>
-                            <Digital />
                         </div>
                     </nav>
                 </div>
@@ -179,7 +176,6 @@ class NavBar extends Component {
                                 </ul>
                             </div>
                             <h2 style={{ color: 'black' }}>Hi, Guest!</h2>
-                            <Digital />
                         </div>
                     </nav>
                 </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index.css';
@@ -42,6 +41,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <NavBar />
+    <Digital />
     {/**/}
     <ReactParticles /> 
       <Switch>
